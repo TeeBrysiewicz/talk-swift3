@@ -1,15 +1,33 @@
 <!doctype html>
-<html>
+<html lang="en">
+
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>TRB: Swift 3</title>
+
+		<!-- THESE ARE THE SEO AND OPEN GRAPH TAGS -->
+		<meta property="og:title" content="TRB: Swift 3" />
+		<meta property="og:type" content="article" />
+		<meta property="og:image" content="me.png" />
+		<meta property="og:site_name" content="{{ site.title }}" />
+		<meta property="og:description" name="description" content="All Things Swift: Chicago Edition - Swift 3 by Tobias Brysiewicz" />
+		<meta name="keywords" content="all things swift, swift3, swift 3, xcode, tobias, brysiewicz, developer, website, blog, professional, design, toby, tobe, rails, ruby, javascript, sql, jquery, html, css, cli, fullstack, san, diego, chicago, illinois, wework, ios, swift, programmer" />
+		<meta name="description" content="all things swift, swift3, swift 3, xcode, tobias, brysiewicz, developer, website, blog, professional, design, toby, tobe, rails, ruby, javascript, sql, jquery, html, css, cli, fullstack, san, diego, chicago, illinois, wework, ios, swift, programmer">
+		<meta name="author" content="Tobias Brysiewicz">
+        <!-- END SEO AND OPEN GRAPH TAGS -->
+
+
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/blood.css" id="theme">
 
-		<!-- Theme used for syntax highlighting of code -->
+		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<!-- Printing and PDF exports -->
@@ -20,31 +38,272 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
 	</head>
+
 	<body>
+
 		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Swift 3</h1>
+					<h3>a few new things</h3>
+					<p>
+						<small>Created by <a href="https://tobiasrobertbrysiewicz.com/">Tobias Brysiewicz</a> / <a href="http://twitter.com/tbrysiewicz">@tbrysiewicz</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>To Do</h2>
+					<ul>
+						<li>Migrating to Swift 3</li>
+						<li>Seven New Things</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Migrating</h2>
+					<p>put funny migration image here</p>
+					<ul>
+						<li>Cocoa API name changes</li>
+						<li>Apple’s Migration Assistant with Xcode 8 (touch ups may be required)</li>
+					</ul>
+				</section>
+
+
+				<!-- FOR LOOPS -->
+				<section data-markdown>
+					<script type="text/template">
+						## For Loops
+
+						Perviously in Swift 2
+
+						```
+						for (i = 1; i <= 10; i++) {  print(i)  }
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## For Loops
+
+						Now in Swift 3
+
+						```
+						for i in 1...10 {  print(i)  }
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## For Each
+
+						Now in Swift 3
+
+						```
+						(1...10).forEach {  print($0)  }
+						```
+					</script>
+				</section>
+				<!-- END FOR LOOPS -->
+
+
+				<!-- SELECTORS -->
+				<section data-markdown>
+					<script type="text/template">
+						## Selectors
+
+						Perviously in Swift 2
+
+						```
+						button.addTarget(responder, action: "tap", forControlEvents: .TouchUpInside)
+
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Selectors
+
+						Now in Swift 3
+
+						```
+						button.addTarget(responder, action: #selector(Responder.tap), for: .touchUpInside)
+
+						```
+					</script>
+				</section>
+				<!-- END SELECTORS -->
+
+
+				<!-- KVC Paths -->
+				<section data-markdown>
+					<script type="text/template">
+						## KVC Paths
+
+						Perviously in Swift 2
+
+						```
+						me.valueForKeyPath(“name")
+
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## KVC Paths
+
+						Now in Swift 3
+
+						```
+						me.value(forKeyPath: #keyPath(Person.name))
+
+						```
+					</script>
+				</section>
+				<!-- END KVC Paths -->
+
+
+				<!-- NS Prefix -->
+				<section data-markdown>
+					<script type="text/template">
+						## NS Prefix
+
+						Perviously in Swift 2
+
+						```
+						let json = try! NSJSONSerialization.JSONObjectWithData(data!, options: [])
+
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## NS Prefix
+
+						Now in Swift 3
+
+						```
+						let json = try! JSONSerialization.jsonObject(with: data)
+
+						```
+					</script>
+				</section>
+				<!-- END NS Prefix -->
+
+
+				<!-- Colors -->
+				<section data-markdown>
+					<script type="text/template">
+						## Colors
+
+						Perviously in Swift 2
+
+						```
+						let red = UIColor.redColor()
+
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Colors
+
+						Now in Swift 3
+
+						```
+						let red = UIColor.red()
+
+						```
+					</script>
+				</section>
+				<!-- END Colors -->
+
+
+				<!-- Verbs vs Nouns Naming Convention -->
+				<section data-markdown>
+					<script type="text/template">
+						## Verbs vs Nouns Naming Convention
+
+						Perviously in Swift 2
+
+						```
+						for (index, value) in array.enumerate() {…}
+
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Verbs vs Nouns Naming Convention
+
+						Now in Swift 3
+
+						```
+						for (index, value) in array.enumerated() {…}
+
+						```
+					</script>
+				</section>
+				<!-- END Verbs vs Nouns Naming Convention -->
+
+
+
+				<section style="text-align: left;">
+					<h1>That's It</h1>
+					<h3 style="margin-left: 200px;">Until Swift 4... </h3>
+					<p>
+						Thank You
+
+					</p>
+					<p>
+						<small><a href="https://tobiasrobertbrysiewicz.com/">https://tobiasrobertbrysiewicz.com</a> / <a href="http://twitter.com/tbrysiewicz">@tbrysiewicz</a></small>
+					</p>
+				</section>
+
 			</div>
+
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
+
 		</script>
+
 	</body>
 </html>
